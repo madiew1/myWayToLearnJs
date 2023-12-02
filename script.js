@@ -65,8 +65,19 @@ const personalMovieDB = {
     },
     writeYourGenres: function () {
         for (let i = 1; i <= 3; i++) {
-            personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`);
+            let genres = prompt(`Введите ваши любимые жанры через запятую`).toLowerCase();
+
+            if (genres === '' || genres == null) {
+                console.log('Вы ввели некорректные данные или не ввели их вовсе');
+                i--;
+            } else {
+                personalMovieDB.genres = genres.split(',');
+                personalMovieDB.genres.sort();
+            }
         }
+        personalMovieDB.genres.forEach((item, i) => {
+            console.log(`Любимый жанр ${i + 1} - это ${item}`);
+        });
     },
 };
 // Код возьмите из предыдущего домашнего задания
