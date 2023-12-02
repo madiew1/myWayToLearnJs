@@ -20,10 +20,10 @@ const personalMovieDB = {
     genres: [],
     privat: false,
     start: function () {
-        personalMovieDB = +prompt('Сколько фильмов вы уже посмотрели?', '');
+        personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
 
-        while (personalMovieDB == '' || personalMovieDB == null || isNaN(personalMovieDB)) {
-            personalMovieDB = +prompt('Сколько фильмов вы уже посмотрели?', '');
+        while (personalMovieDB.count == '' || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
+            personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
         }
     },
     rememberMyFilms: function () {
